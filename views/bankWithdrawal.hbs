@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, intital-scale=1.0">
+    <title>Seneca Web Bank</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/acct.js"></script>
+</head>
+<body>
+    {{>header}}
+    <form class="clsForm" id="bankWithdrawalForm" method="post" action="/withdrawal">
+    <article class="container">
+        <label class="clsDepositLabels">Account Number</label>&nbsp;
+        <input class="clsAccountNumber" name="txtaccountnumber" value={{accountNumber}} readonly>
+        <br>
+        <br>
+        <label class="lblDeposit">Amount</label>
+        <input id="amount" name="amount" type="text">
+    </article>
+    <br><br>
+    <section class="depositButtons">
+       <button id="submit" name="btnsubmit" type="submit" value="withdrawal">Submit</button> 
+       <button id="cancel" name="btnsubmit" type="submit" value="cancel">Cancel</button>  
+    </section>
+    
+    </form>
+</body>
+</html>

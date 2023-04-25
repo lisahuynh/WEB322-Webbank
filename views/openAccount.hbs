@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, intital-scale=1.0">
+    <title>Seneca Web Bank</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/acct.js"></script>
+</head>
+<body>
+    {{>header}}
+    <form class="clsForm" id="openAccountForm" method="post" action="/newacct">
+    <article class="container">
+        {{#if chequingAccount}}
+            <input class="accounttype" id="newchequing" name="accounttype" type ="radio" value="Chequing" onclick="fSelectOpenAccountOption()" disabled>
+        {{else}}
+            <input class="accounttype" id="newchequing" name="accounttype" type ="radio" value="Chequing" onclick="fSelectOpenAccountOption()">
+        {{/if}}
+            <label class="accounttype" for="newchequing">Chequing</label>
+        {{#if savingsAccount}}
+            <input class="accounttype" id="newsavings" name="accounttype" type="radio" value="Savings" onclick="fSelectOpenAccountOption()" disabled>
+        {{else}}
+            <input class="accounttype" id="newsavings" name="accounttype" type="radio" value="Savings" onclick="fSelectOpenAccountOption()">
+        {{/if}}
+             <label class="accounttype" for="newsavings">Savings</label>
+    </article>
+    <br><br><br>
+    <section class="depositButtons">
+       <button id="btnsubmit" name="btnsubmit" type="submit" value="newacct" disabled>Submit</button> 
+       <button id="btncancel" name="btnsubmit" type="submit" value="cancel">Cancel</button>  
+    </section>
+    
+    </form>
+</body>
+</html>

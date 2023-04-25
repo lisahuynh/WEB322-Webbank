@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, intital-scale=1.0">
+    <title>Seneca Web Bank</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+    {{>header}}
+    <form class="clsForm" id="bankBalanceForm" method="post" action="/balance">
+
+        <article class="container">
+            <p class="clsBalance">Account: {{accountNumber}}</p>
+            <p class="clsBalance">Account Type: {{accountType}}</p>
+            <p class="clsBalance">Account Balance: {{accountBalance}}</p>
+        </article>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <button id="submit" type="submit">OK</button>
+    </form>
+</body>
+
+</html>

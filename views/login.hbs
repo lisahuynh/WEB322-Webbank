@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Seneca Web Bank</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+    {{>header}}
+    <br>
+    <h2>Welcome to</h2>
+    <h1>Seneca Web Bank</h1>
+
+    <form class="clsForm" id="homeLoginForm" method="post" action="/login">
+        <article class="loginContainer">
+            <br>
+            <br>
+            <input id="username" name="username" type="text" required placeholder="Username" value="">
+            <br>
+            <br>
+            <input id="password" name="password" type="password" required placeholder="Password" value="">
+            <br>
+            <br>
+            <br>
+            <button id="submit" type="submit" value="submit">Submit</button>
+            <br>
+            {{#if message}}
+            <label id="message">{{message}}</label>
+            {{/if}}
+        </article>
+    </form>
+</body>
+</html>

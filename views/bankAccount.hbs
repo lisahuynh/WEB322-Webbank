@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, intital-scale=1.0">
+    <title>Seneca Web Bank</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/acct.js"></script>
+</head>
+
+<body>
+    {{>header}}
+    <form class="clsForm" id="bankAcctForm" method="post" action="/acct">
+
+        <article class="container">
+            <h2>Seneca Web Bank</h2>
+            <h1>Your Banking Information</h1>
+        </article>
+
+        <nav class="menu">
+            <h3>Menu</h3>
+            <select id="acct" name="acct">
+                {{#if chequingAccount}}<option value={{chequingAccount}}>{{chequingAccount}}</option>{{/if}}
+                {{#if savingsAccount}}<option value={{savingsAccount}}>{{savingsAccount}}</option>{{/if}}
+            </select>
+            <br>
+            <br>
+            <fieldset id="banking">
+                {{#noAcctDisabled chequingAccount savingsAccount}}
+                <input id="balance" name="banking" type="radio" value="balance" onclick="fSelectBankingOption()" disabled>
+                {{else}}
+                <input id="balance" name="banking" type="radio" value="balance" onclick="fSelectBankingOption()">
+                {{/noAcctDisabled}}
+                <label for="balance">Balance</label>
+                <br>
+                <br>
+                {{#noAcctDisabled chequingAccount savingsAccount}}
+                <input id="deposit" name="banking" type="radio" value="deposit" onclick="fSelectBankingOption()" disabled>
+                {{else}}
+                <input id="deposit" name="banking" type="radio" value="deposit" onclick="fSelectBankingOption()">
+                {{/noAcctDisabled}}
+                <label for="deposit">Deposit</label>
+                <br>
+                <br>
+                {{#checked chequingAccount savingsAccount}}
+                <input id="openAcct" name="banking" type="radio" value="newacct" onclick="fSelectBankingOption()" checked>
+                {{/checked}}
+                {{#newAcctDisabled chequingAccount savingsAccount}}
+                <input id="openAcct" name="banking" type="radio" value="newacct" onclick="fSelectBankingOption()" disabled>
+                {{/newAcctDisabled}}
+                <label for="openAcct">Open an Account</label>
+                <br>
+                <br>
+                {{#noAcctDisabled chequingAccount savingsAccount}}
+                <input id="withdrawal" name="banking" type="radio" value="withdrawal" onclick="fSelectBankingOption()" disabled>
+                {{else}}
+                <input id="withdrawal" name="banking" type="radio" value="withdrawal" onclick="fSelectBankingOption()">
+                {{/noAcctDisabled}}
+                <label for="withdrawal">Withdrawal</label>
+            </fieldset>
+        </nav>
+
+        <aside class="usernameLogout">
+            <div id="username">{{user}}</div>
+            <div id="logout"><a id="userLogout" onclick="fLogout();">Logout</a></div>
+        </aside>
+
+        {{#if message}}
+        <label id="message">{{message}}</label> {{/if}}
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <button id="btnsubmit" name="btnsubmit" type="submit" value="submit" disabled>Submit</button>
+
+
+
+    </form>
+</body>
+
+</html>
